@@ -1,7 +1,12 @@
 <template>
   <div id="patient-table">
     <table>
-      <!-- ...thead... -->
+     <thead>
+        <tr>
+          <th>Patient name</th>
+          <th>Patient email</th>
+        </tr>
+      </thead>
       <tbody>
         <tr v-for="patient in patients" :key="patient.id">
           <td>{{ patient.name }}</td>

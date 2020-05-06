@@ -16,35 +16,34 @@ export default {
   },
   data() {
     return {
-      patients: [
-        {
-          id: 1,
-          name: 'Richard Hendricks',
-          email: 'richard@piedpiper.com',
-        },
-        {
-          id: 2,
-          name: 'Bertram Gilfoyle',
-          email: 'gilfoyle@piedpiper.com',
-        },
-        {
-          id: 3,
-          name: 'Dinesh Chugtai',
-          email: 'dinesh@piedpiper.com',
-        },
-      ],
+      patients: []
     }
-  }
+  },
+  mounted() {
+    this.getPatients();
+  },
+  methods: {
+    async getPatients() {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/users')
+        const data = await response.json()
+        this.patients = data
+      } catch (error) {
+        console.error(error)
+      }
+    }
+     
+}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  button {
+    background: #009435;
+    border: 1px solid #009435;
+  }
+
+  .small-container {
+    max-width: 680px;
+  }
 </style>
