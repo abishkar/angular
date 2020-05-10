@@ -3,16 +3,21 @@
     <h1>Patients</h1>
 
     <patient-table :patients="patients" />
+    <create-patient/>
+    
   </div>
 </template>
 
 <script>
 import PatientTable from './components/PatientTable.vue'
+import CreatePatient from './components/CreatePatient.vue'
+
 
 export default {
   name: 'App',
   components: {
-    PatientTable
+    PatientTable,
+    CreatePatient
   },
   data() {
     return {
